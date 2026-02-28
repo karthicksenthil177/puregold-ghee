@@ -1,26 +1,351 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-gold: #C8A951;
+  --color-gold-light: #D4BA6A;
+  --color-gold-dark: #A88B3D;
+  --color-offwhite: #FAFAFA;
+  --color-lightgray: #F5F5F7;
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #1d1d1f;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #C8A951;
+  color: white;
+}
+
+/* ============================================
+   LAYOUT UTILITIES
+   ============================================ */
+
+/* Section Container */
+.section {
+  @apply py-16 md:py-20 flex flex-col items-center mt-8 md:mt-12;
+}
+
+.section-container {
+  @apply max-w-7xl mx-auto px-6 lg:px-8 w-full;
+}
+
+.section-content {
+  @apply max-w-7xl mx-auto px-6 lg:px-8;
+}
+
+/* Grid Layouts */
+.grid-products {
+  @apply grid sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center mx-auto;
+}
+
+.grid-features {
+  @apply grid sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center;
+}
+
+.grid-testimonials {
+  @apply grid md:grid-cols-3 gap-8 justify-items-center;
+}
+
+.grid-about {
+  @apply grid md:grid-cols-2 gap-16 md:gap-20 items-center;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+.section-label {
+  @apply text-gold text-sm font-medium tracking-[0.2em] uppercase;
+}
+
+.section-heading {
+  @apply mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-[#1d1d1f];
+}
+
+.section-description {
+  @apply mt-8 md:mt-10 text-lg text-[#1d1d1f]/50 max-w-xl font-light text-center px-4 md:px-0;
+}
+
+.section-description-left {
+  @apply mt-6 text-lg text-[#1d1d1f]/60 leading-relaxed font-light;
+}
+
+.section-header {
+  @apply text-center mb-16 flex flex-col items-center;
+}
+
+.section-header-simple {
+  @apply text-center mb-16;
+}
+
+.card-title {
+  @apply text-lg font-semibold text-[#1d1d1f] tracking-tight;
+}
+
+.card-description {
+  @apply mt-1 text-sm text-[#1d1d1f]/50 font-light;
+}
+
+.card-price {
+  @apply text-xl font-semibold text-[#1d1d1f];
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+
+/* Product Card */
+.product-card {
+  @apply relative bg-white/60 backdrop-blur-xl border border-white/80 rounded-3xl transition-shadow duration-500 w-full max-w-sm py-8 md:py-10 px-4 md:px-8;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+}
+
+.product-card:hover {
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+}
+
+.product-card-image {
+  @apply aspect-square rounded-2xl flex items-center justify-center mb-6 overflow-hidden;
+}
+
+.product-card-image-inner {
+  @apply w-24 h-24 rounded-full bg-white/40 backdrop-blur-sm flex items-center justify-center;
+}
+
+.product-card-image-label {
+  @apply text-center;
+}
+
+.product-card-image-text {
+  @apply text-[#1d1d1f]/60 text-[10px] font-medium tracking-[0.2em] uppercase block;
+}
+
+.product-card-footer {
+  @apply mt-4 flex items-center justify-between;
+}
+
+/* Feature Card */
+.feature-card {
+  @apply text-center bg-[#F9F9FB] rounded-3xl p-10 w-full max-w-sm;
+}
+
+.feature-card-icon {
+  @apply w-16 h-16 mx-auto rounded-2xl bg-[#F5F5F7] flex items-center justify-center text-gold transition-all duration-500;
+}
+
+.group:hover .feature-card-icon {
+  @apply bg-gold text-white;
+}
+
+.feature-card-title {
+  @apply mt-5 text-lg font-semibold text-[#1d1d1f] tracking-tight;
+}
+
+.feature-card-description {
+  @apply mt-2 text-sm text-[#1d1d1f]/50 font-light leading-relaxed max-w-[240px] mx-auto;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+  @apply relative bg-white rounded-3xl p-10 md:p-12 w-full max-w-md;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+}
+
+.testimonial-quote {
+  @apply absolute top-6 left-8 text-6xl text-gold/20 font-serif leading-none select-none;
+}
+
+.testimonial-text {
+  @apply relative mt-8 text-[#1d1d1f]/70 leading-relaxed font-light text-lg;
+}
+
+.testimonial-author {
+  @apply mt-8 flex items-center gap-4;
+}
+
+.testimonial-avatar {
+  @apply w-10 h-10 rounded-full bg-gradient-to-br from-gold/30 to-gold/10 flex items-center justify-center;
+}
+
+.testimonial-avatar-text {
+  @apply text-sm font-semibold text-gold;
+}
+
+.testimonial-name {
+  @apply text-sm font-semibold text-[#1d1d1f];
+}
+
+.testimonial-title {
+  @apply text-xs text-[#1d1d1f]/40;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+/* Primary Button */
+.btn-primary {
+  @apply inline-block bg-[#1d1d1f] text-white text-sm font-medium px-8 py-3 rounded-full hover:bg-[#1d1d1f]/80 transition-all duration-300 tracking-wide;
+}
+
+.btn-primary-hover {
+  @apply hover:scale-105 active:scale-95;
+}
+
+/* Secondary Button (Gold/Link style) */
+.btn-secondary {
+  @apply text-sm text-gold font-medium hover:text-gold-dark transition-colors duration-300 underline-offset-4 px-4 py-4 rounded-full hover:bg-gold/10;
+}
+
+.group:hover .btn-secondary {
+  text-decoration: underline;
+}
+
+/* Link Button */
+.btn-link {
+  @apply text-sm text-[#1d1d1f]/70 hover:text-[#1d1d1f] transition-colors duration-300;
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+
+.navbar {
+  @apply fixed top-0 left-0 right-0 z-50 transition-all duration-500;
+}
+
+.navbar-scrolled {
+  @apply bg-white/70 backdrop-blur-xl;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+
+.navbar-container {
+  @apply max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16;
+}
+
+.navbar-brand {
+  @apply flex items-center gap-2;
+}
+
+.navbar-brand-text {
+  @apply text-xl font-semibold tracking-tight text-[#1d1d1f];
+}
+
+.navbar-links {
+  @apply hidden md:flex items-center gap-8;
+}
+
+.navbar-mobile-menu {
+  @apply md:hidden overflow-hidden bg-white/90 backdrop-blur-xl;
+}
+
+.navbar-mobile-content {
+  @apply flex flex-col items-center gap-4 py-6;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+  @apply bg-[#1d1d1f] text-white/60;
+}
+
+.footer-container {
+  @apply max-w-7xl mx-auto px-6 lg:px-8 py-16 text-center md:text-left;
+}
+
+.footer-grid {
+  @apply grid md:grid-cols-4 gap-10;
+}
+
+.footer-brand {
+  @apply md:col-span-2 mx-auto md:mx-0;
+}
+
+.footer-brand-text {
+  @apply text-xl font-semibold text-white tracking-tight;
+}
+
+.footer-description {
+  @apply mt-4 text-sm leading-relaxed max-w-sm;
+}
+
+.footer-section-title {
+  @apply text-sm font-semibold text-white mb-4;
+}
+
+.footer-links {
+  @apply space-y-3 text-sm;
+}
+
+.footer-link {
+  @apply hover:text-white transition-colors duration-300;
+}
+
+.footer-social-icon {
+  @apply w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-white transition-all duration-300;
+}
+
+.footer-bottom {
+  @apply mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4;
+}
+
+.footer-bottom-link {
+  @apply text-xs hover:text-white transition-colors;
+}
+
+/* ============================================
+   COMMON UTILITIES
+   ============================================ */
+
+.text-center-wrapper {
+  @apply text-center md:text-left;
+}
+
+.gradient-gold {
+  @apply bg-gradient-to-br from-gold/20 via-gold/10 to-transparent;
+}
+
+.gradient-gold-full {
+  @apply bg-gradient-to-br from-[#C8A951] to-[#E8D48B];
+}
+
+.gradient-placeholder {
+  @apply bg-gradient-to-br from-[#F5F5F7] to-[#E8E8ED];
+}
+
+.avatar-gradient {
+  @apply bg-gradient-to-br from-gold/30 to-gold/10;
+}
+
+.backdrop-glass {
+  @apply bg-white/60 backdrop-blur-xl;
+}
+
+.shadow-soft {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-soft-hover {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-soft-hover:hover {
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
 }
