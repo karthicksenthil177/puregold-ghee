@@ -25,29 +25,32 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`navbar ${scrolled ? "navbar-scrolled" : "bg-transparent"}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+          ? "bg-white/70 backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,0.06)]"
+          : "bg-transparent"
+        }`}
     >
-      <div className="navbar-container">
-        <a href="#" className="navbar-brand">
-          <span className="navbar-brand-text">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16">
+        <a href="#" className="flex items-center gap-2">
+          <span className="text-xl font-semibold tracking-tight text-[#1d1d1f]">
             Pure<span className="text-gold">Gold</span>
           </span>
         </a>
 
         {/* Desktop links */}
-        <div className="navbar-links">
+        <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="btn-link"
+              className="text-sm text-[#1d1d1f]/70 hover:text-[#1d1d1f] transition-colors duration-300"
             >
               {link.label}
             </a>
           ))}
           <a
             href="#products"
-            className="btn-primary"
+            className="text-sm bg-[#1d1d1f] text-white px-6 py-2.5 rounded-full hover:bg-[#1d1d1f]/80 transition-colors duration-300"
           >
             Shop Now
           </a>
@@ -78,15 +81,15 @@ export default function Navbar() {
       <motion.div
         initial={false}
         animate={mobileOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
-        className="navbar-mobile-menu"
+        className="md:hidden overflow-hidden bg-white/90 backdrop-blur-xl"
       >
-        <div className="navbar-mobile-content">
+        <div className="flex flex-col items-center gap-4 py-6">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="btn-link"
+              className="text-sm text-[#1d1d1f]/70 hover:text-[#1d1d1f] transition-colors"
             >
               {link.label}
             </a>
@@ -94,7 +97,7 @@ export default function Navbar() {
           <a
             href="#products"
             onClick={() => setMobileOpen(false)}
-            className="btn-primary"
+            className="text-sm bg-[#1d1d1f] text-white px-5 py-2 rounded-full"
           >
             Shop Now
           </a>
