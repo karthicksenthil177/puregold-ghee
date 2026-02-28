@@ -26,8 +26,8 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-          ? "bg-white/70 backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,0.06)]"
-          : "bg-transparent"
+        ? "bg-white/70 backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,0.06)]"
+        : "bg-transparent"
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16">
@@ -50,7 +50,7 @@ export default function Navbar() {
           ))}
           <a
             href="#products"
-            className="text-sm bg-[#1d1d1f] text-white px-6 py-2.5 rounded-full hover:bg-[#1d1d1f]/80 transition-colors duration-300"
+            className="btn-primary btn-primary-hover"
           >
             Shop Now
           </a>
@@ -97,7 +97,7 @@ export default function Navbar() {
           <a
             href="#products"
             onClick={() => setMobileOpen(false)}
-            className="text-sm bg-[#1d1d1f] text-white px-5 py-2 rounded-full"
+            className="btn-primary w-full text-center"
           >
             Shop Now
           </a>
