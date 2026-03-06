@@ -68,19 +68,20 @@ export default function Hero() {
           Experience ghee the way it was always meant to be.
         </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-10"
-        >
-          <a
-            href="#products"
-            className="btn-primary btn-primary-hover"
+        <div className="hero-cta-wrapper">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Explore Products
-          </a>
-        </motion.div>
+            <a
+              href="#products"
+              className="btn-primary btn-primary-hover"
+            >
+              Explore Products
+            </a>
+          </motion.div>
+        </div>
       </motion.div>
 
       {/* Scroll indicator */}

@@ -6,7 +6,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="footer-brand">
             <span className="footer-brand-text">
-              Pure<span className="text-gold">Gold</span>
+              Pure <span className="text-gold">Gold</span>
             </span>
             <p className="footer-description">
               Handcrafted premium ghee from heritage farms. Pure, golden, and

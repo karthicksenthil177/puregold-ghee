@@ -222,6 +222,79 @@ body {
 }
 
 /* ============================================
+   HERO
+   ============================================ */
+
+.hero-cta-wrapper {
+  padding-top: 2.5rem; /* space above Explore Products */
+  display: flex;
+  justify-content: center;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+/* About section – space above stats (50+ / 100% / Zero) */
+.about-stats-wrapper {
+  padding-top: 2.5rem;
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .about-stats-wrapper {
+    justify-content: flex-start;
+  }
+}
+
+/* Product detail dialog */
+.product-dialog {
+  padding: 2rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  max-width: 32rem;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  .product-dialog {
+    padding: 2.5rem;
+  }
+}
+
+.product-dialog-header {
+  padding-bottom: 1.25rem;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.product-dialog-contact {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #1d1d1f;
+}
+
+.product-dialog-contact a {
+  color: #C8A951;
+  text-decoration: none;
+}
+
+.product-dialog-contact a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
    NAVBAR
    ============================================ */
 
@@ -235,7 +308,22 @@ body {
 }
 
 .navbar-container {
-  @apply max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .navbar-container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
 
 .navbar-brand {

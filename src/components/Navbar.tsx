@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 
 const navLinks = [
   { label: "About", href: "#about" },
-  { label: "Products", href: "#products" },
   { label: "Why Us", href: "#features" },
   { label: "Testimonials", href: "#testimonials" },
 ];
@@ -30,15 +29,15 @@ export default function Navbar() {
         : "bg-transparent"
         }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16">
-        <a href="#" className="flex items-center gap-2">
+      <div className="navbar-container">
+        <a href="/" className="flex items-center gap-2 flex-shrink-0 mr-auto text-left">
           <span className="text-xl font-semibold tracking-tight text-[#1d1d1f]">
-            Pure<span className="text-gold">Gold</span>
+            Pure <span className="text-gold">Gold</span>
           </span>
         </a>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-8 ml-6">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -52,7 +51,7 @@ export default function Navbar() {
             href="#products"
             className="btn-primary btn-primary-hover"
           >
-            Shop Now
+            Products
           </a>
         </div>
 
@@ -99,7 +98,7 @@ export default function Navbar() {
             onClick={() => setMobileOpen(false)}
             className="btn-primary w-full text-center"
           >
-            Shop Now
+            Products
           </a>
         </div>
       </motion.div>
