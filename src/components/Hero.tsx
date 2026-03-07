@@ -26,20 +26,20 @@ export default function Hero() {
 
       <motion.div
         style={{ opacity, y }}
-        className="relative z-10 text-center px-6 max-w-5xl mx-auto"
+        className="relative z-10 text-center px-6 max-w-5xl mx-auto -mt-6"
       >
         {/* Product image */}
         <motion.div
           style={{ scale }}
-          className="mx-auto mb-10 w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 relative"
+          className="mx-auto mb-8 w-40 h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 relative"
         >
           <div className="w-full h-full rounded-full bg-gradient-to-br from-gold/20 via-gold/10 to-transparent flex items-center justify-center">
             <div className="w-[85%] h-[85%] rounded-full bg-gradient-to-br from-[#C8A951] to-[#E8D48B] shadow-2xl flex items-center justify-center">
               <div className="text-center">
-                <span className="text-white text-xs font-medium tracking-[0.3em] uppercase block mb-1">
-                  PureGold
+                <span className="text-white text-[10px] font-medium tracking-[0.2em] uppercase block mb-0.5">
+                  Pure Gold
                 </span>
-                <span className="text-white/90 text-[10px] tracking-widest uppercase">
+                <span className="text-white/90 text-[8px] tracking-widest uppercase">
                   Premium Ghee
                 </span>
               </div>
@@ -51,7 +51,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-[#1d1d1f] leading-[1.05]"
+          className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-[#1d1d1f] leading-[1.05]"
         >
           Pure. Golden.
           <br />
