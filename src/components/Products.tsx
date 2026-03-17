@@ -10,28 +10,36 @@ const products = [
     desc: "Pure desi ghee from grass-fed A2 cows",
     price: "₹1,049",
     gradient: "from-[#F7E7B4] to-[#F0D68A]",
-    about: "Our Classic A2 Ghee is made from the milk of grass-fed A2 cows, known for easier digestion. Sourced from trusted farms, it is slow-crafted to preserve the natural flavour and golden colour. Ideal for everyday cooking, drizzling, and traditional recipes. No additives or preservatives—just pure, golden ghee.",
+    image: "/images/ghee.jpg",
+    about:
+      "Our Classic A2 Ghee is made from the milk of grass-fed A2 cows, known for easier digestion. Sourced from trusted farms, it is slow-crafted to preserve the natural flavour and golden colour. Ideal for everyday cooking, drizzling, and traditional recipes. No additives or preservatives—just pure, golden ghee.",
   },
   {
     name: "Organic Bilona Ghee",
     desc: "Traditional hand-churned using the Bilona method",
     price: "₹1,249",
     gradient: "from-[#E8D9A0] to-[#D4C47A]",
-    about: "Bilona ghee is made the traditional way: curd is set from A2 milk, then hand-churned in a wooden churner (bilona) until the butter separates. This butter is then slow-cooked into ghee. The process preserves nutrients and gives a rich, nutty taste. Our Organic Bilona Ghee is certified organic and handcrafted in small batches.",
+    image: "/images/puregold-organic-bilona.png",
+    about:
+      "Bilona ghee is made the traditional way: curd is set from A2 milk, then hand-churned in a wooden churner (bilona) until the butter separates. This butter is then slow-cooked into ghee. The process preserves nutrients and gives a rich, nutty taste. Our Organic Bilona Ghee is certified organic and handcrafted in small batches.",
   },
   {
     name: "Infused Herb Ghee",
     desc: "Aromatic ghee infused with Ayurvedic herbs",
     price: "₹1,164",
     gradient: "from-[#D4E4C4] to-[#B8D4A0]",
-    about: "Pure Gold Infused Herb Ghee blends our classic A2 ghee with select Ayurvedic herbs. The fat in ghee helps carry the benefits of the herbs. Use it in cooking, on toast, or as directed in your wellness routine. Made with the same quality A2 ghee and natural herb extracts—no artificial flavours.",
+    image: "/images/puregold-infused-herb.png",
+    about:
+      "Pure Gold Infused Herb Ghee blends our classic A2 ghee with select Ayurvedic herbs. The fat in ghee helps carry the benefits of the herbs. Use it in cooking, on toast, or as directed in your wellness routine. Made with the same quality A2 ghee and natural herb extracts—no artificial flavours.",
   },
   {
     name: "Premium Buffalo Ghee",
     desc: "Rich and creamy buffalo milk ghee",
     price: "₹1,124",
     gradient: "from-[#F0E0C8] to-[#E0CCA8]",
-    about: "Our Premium Buffalo Ghee is made from buffalo milk for a richer, creamier texture and a distinct flavour. Sourced from farms that follow ethical practices, it is slow-cooked to a golden finish. Perfect for sweets, biryanis, and dishes where you want a fuller, traditional ghee taste.",
+    image: "/images/puregold-buffalo.png",
+    about:
+      "Our Premium Buffalo Ghee is made from buffalo milk for a richer, creamier texture and a distinct flavour. Sourced from farms that follow ethical practices, it is slow-cooked to a golden finish. Perfect for sweets, biryanis, and dishes where you want a fuller, traditional ghee taste.",
   },
 ];
 
@@ -98,7 +106,7 @@ export default function Products() {
               <div className="product-card-image relative">
                 <div className="absolute inset-0 rounded-2xl overflow-hidden">
                   <Image
-                    src="/images/ghee.jpg"
+                    src={product.image}
                     alt={product.name}
                     fill
                     className="object-cover rounded-2xl"
